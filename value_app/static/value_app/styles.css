@@ -2,3 +2,7 @@ body {
   background-color: #2F4F4F;
   color: #839496;
 }
+
+.modal-content {
+  background-color: rgba(238, 232, 213, 0.125);
+}
