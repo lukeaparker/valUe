@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="card-columns">
+
+{% if nonprofs %}
+  
+{% for nonprof in nonprofs %}
+{% include 'nonprof_card.html' %}
+{% endfor %}
+
+{% else %}
+<p>Sorry! No Gifs to Display!!</p>
+{% endif %}
+</div>
+
+
+{% endblock %}

@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'value_app',
     'value_accounts',
+    'crispy_forms',
 
 ]
 
@@ -139,3 +140,4 @@ LOGIN_REDIRECT_URL = "/dashboard"
 LOGOUT_REDIRECT_URL = "/"
 #set logout route 
 DEFAULT_LOGOUT_URL = '/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'

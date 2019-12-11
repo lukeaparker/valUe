@@ -1,3 +1,4 @@
+from value_app.models import Value
 from django.contrib import admin
 
-# Register your models here.
+admin.site.register(Value)
