@@ -131,9 +131,12 @@ STATIC_URL = '/static/'
 # wiki app settings
 VALUE_TAG_MAX_LENGTH = 10
 
-
+if os.getenv('IS_ON_HEROKU', False):
+    STATICFILE_DIRECTORY = 'static'
+else:
+    STATICFILE_DIRECTORY = 'static/assets'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, STATICFILE_DIRECTORY)
 ]
 
 # Where to redirect during authentication
