@@ -1,5 +1,7 @@
 {% extends "base.html" %} {% block content %}
 
+
+
 <div class="d-flex justify-content-between">
   <h2>Dashboard</h2>
   <!-- Button trigger modal -->
@@ -29,7 +31,7 @@
           <input class="form-control" type="text" name="search" id="id_username" required>
       </div>      </div>
       <div class="modal-footer">
-          <input type="submit" value="nonprof_list" class="btn btn-success">
+          <input type="submit" value="explore" class="btn btn-success">
         </form>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>
@@ -45,11 +47,12 @@
 
 
 
-
+<div class="card-rows">
 <hr />
 {% if values %}
 <div class="card-columns">
   {% for value in values %} {% include "partials/value_card.html" %} {% endfor %}
+</div>
 </div>
 {% else %}
 <div class="alert alert-primary" role="alert"></div>

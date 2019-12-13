@@ -32,7 +32,7 @@ class DashboardView(ListView):
   
 class NonprofList(CreateView):
     """ Class to render landingpage. """
-
+    
 
     def get(self, request):
       # stores params in a dict variable for the api respponse
@@ -57,15 +57,34 @@ class NonprofList(CreateView):
       # else:
       #     gif_list = None
       #print(nonprof_list)
-      return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict})
+      return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict, "tag" : user_search})
+
+    
+    def get_tag(request):
+        # if this is a POST request we need to process the form data
+        if request.method == 'POST':
+            # create a form instance and populate it with data from the request:
+            form = CreateValueForm(request.POST)
+            # check whether it's valid:
+            if form.is_valid():
+                # process the data in form.cleaned_data as required
+                # ...
+                # redirect to a new URL:
+                return HttpResponseRedirect('/dashboard/')
+
+        # if a GET (or any other method) we'll create a blank form
+        else:
+            form = CreateValueForm()
+
+        return render(request, 'dashboard.html', {'form': form})
 
 
 
 
-        
+            
 
 
 
 
 
-      
+          

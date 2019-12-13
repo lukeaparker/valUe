@@ -1,6 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
+
+  
+
+        <form action="{% url 'dashboard' %}" method="post">
+        {% csrf_token %}
+        {{ form.as_p() }}
+        <button class="btn btn-primary" type="submit" >
+    </form>
+
+
+
 <div class="card-columns">
 
 {% if nonprofs %}
@@ -10,7 +21,7 @@
 {% endfor %}
 
 {% else %}
-<p>Sorry! No Gifs to Display!!</p>
+<p>Sorry! No nonprofits to Display!!</p>
 {% endif %}
 </div>
 

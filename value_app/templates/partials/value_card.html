@@ -1,11 +1,11 @@
-<div class="card border-light mb-3">
-        <h5 class="card-header ">{{ page.title }}</h5>
-        <div class="card-body border-dark">
-          <p class="card-text text-dark">
-            {{ page.content|truncatewords_html:30 }}
-            <hr>
-         
-        <div class="card-footer">
-          <small class="text-muted">Last updated {{ value.modified|date:"SHORT_DATETIME_FORMAT" }} by <b>{{ page.author.username }}</b></small>
-        </div>
-      </div>
+{% load static %}
+<div class="card border-primary mb-3" style="max-width: 20rem;">
+    <div class="card-body">
+    <h4 class="card-title">{{ value.tag }}</h4>
+    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
+    <p class="card-text">
+      Some quick example text to build on the card title and make up the bulk of
+      the card's content.
+    </p>
+  </div>
+</div>
