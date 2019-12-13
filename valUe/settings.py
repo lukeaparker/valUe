@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
- ALLOWED_HOSTS = ['localhost', 'lukeaparkervalue.herokuapp.com']
+ALLOWED_HOSTS = ['localhost', 'lukeaparkervalue.herokuapp.com']
 
 
 MIDDLEWARE = [
@@ -145,3 +145,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_CLASS_CONVERTERS = {
     'textinput': "form-control form-control-lg",
 }
+STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
