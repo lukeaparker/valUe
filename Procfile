@@ -1,1 +1,1 @@
-web: gunicorn value_app.wsgi --log-file -
+web: gunicorn valUe.wsgi --log-file -
