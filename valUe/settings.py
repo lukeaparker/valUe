@@ -27,7 +27,7 @@ SECRET_KEY = '14&%29^jc9wabxo*sqe6p+*@e$ys#1z7-jpxae4o^22s2xqg2o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'lukeaparkervalue.herokuapp.com']
 
 
 # Application definition
@@ -44,9 +44,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     'rest_framework',
 ]
-
-ALLOWED_HOSTS = ['localhost', 'lukeaparkervalue.herokuapp.com']
-
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
