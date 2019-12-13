@@ -148,4 +148,4 @@ CRISPY_TEMPLATE_PACK = 'bootstrap4'
 CRISPY_CLASS_CONVERTERS = {
     'textinput': "form-control form-control-lg",
 }
-STATIC_ROOT = os.path.join(BASE_DIR, ‘static’)
+
