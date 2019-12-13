@@ -1,7 +1,8 @@
 <div class="card border-primary mb-3" style="max-width: 20rem;">
-    <div class="card-header">value</div>
-    <div class="card-body">
-      <h4 class="card-title">{{ value.tag  }}</h4>
-      <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    </div>
+  <div class="card-header">value</div>
+  <div class="card-body">
+    <h4 class="card-title">{{ value.tag }}</h4>
+    <a href="{% url 'nonprof_detail' value.id %}"> More Info</a>
+    <br />
   </div>
+</div>

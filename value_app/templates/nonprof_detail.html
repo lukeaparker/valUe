@@ -1,10 +1,7 @@
 {% extends "base.html" %} {% block content %} {% load crispy_forms_tags %}
-<form method="POST">
-  {% csrf_token %}
-  <div class=".form-control-lg">{{ form|crispy}}</>
-  <input type="submit" value="save" />
-</form>
-</div>
+
+<h1>{{ value.tag }}</h1>
+<a href="{% url 'nonprof_list_update' value.slug %}">Edit</a>
 
 <div class="card-columns">
   {% if nonprofs %} {% for nonprof in nonprofs %}

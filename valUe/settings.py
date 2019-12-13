@@ -141,3 +141,6 @@ LOGOUT_REDIRECT_URL = "/"
 #set logout route 
 DEFAULT_LOGOUT_URL = '/'
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+CRISPY_CLASS_CONVERTERS = {
+    'textinput': "form-control form-control-lg",
+}
