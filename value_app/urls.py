@@ -7,6 +7,6 @@ from . import views
 
 urlpatterns = [
     path('', LandingView.as_view(), name='landingpage'),
-    path('dashboard/', DashboardView.as_view(), name='dashboard'),
+    path('dashboard', DashboardView.as_view(), name='dashboard'),
     path('nonprof_list/', NonprofList.as_view(), name='nonprof_list'),
 ]
