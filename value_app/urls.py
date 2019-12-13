@@ -11,6 +11,6 @@ urlpatterns = [
     path('', LandingView.as_view(), name='landingpage'),
     path('dashboard', DashboardView.as_view(), name='dashboard'),
     path('nonprof_list/', NonprofList.as_view(), name='nonprof_list'),
-    path('<str:pk>/nonprof_list', NonprofDetailView.as_view(), name='nonprof_detail'),
-    path('nonprof_list/<str:slug>/update', ValueUpdateView.as_view(), name='nonprof_list_update')
+    path('nonprof_list/<str:pk>/<str:slug>', NonprofDetailView.as_view(), name='nonprof_detail'),
+    path('nonprof_list/<str:pk>/<str:slug>/update', ValueUpdateView.as_view(), name='nonprof_list_update')
 ]

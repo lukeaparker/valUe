@@ -56,7 +56,7 @@ class NonprofList(CreateView):
       form = CreateValueForm(request.POST)
       if form.is_valid():
           value = form.save()
-          return HttpResponseRedirect(reverse_lazy('dashboard'))
+          return HttpResponseRedirect(reverse_lazy('nonprof_detail', Value.id, Value.slug))
       return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict,'form': form})
 
 
@@ -66,16 +66,10 @@ class ValueUpdateView(UpdateView):
     form_class = CreateValueForm
     success_url = '/dashboard'
 
+
     def get_object(self):
         slug = self.kwargs.get('slug')
         return get_object_or_404(Value, slug=slug)
-
-    # def post(self, request, *args, **kwargs):
-    #   form = CreateValueForm(request.POST)
-    #   if form.is_valid():
-    #       value = form.save()
-    #       return HttpResponseRedirect(reverse_lazy('dashboard'))
-    #   return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict,'form': form})
 
 class NonprofDetailView(DetailView):
     model = Value
@@ -84,22 +78,19 @@ class NonprofDetailView(DetailView):
     def get_queryset(self):
         return Value.objects.filter()
 
-    # def get(self, request):
-    #     user_search = get_object_or_404(self.model, pk=_pk)
-    #     # stores params in a dict variable for the api respponse
-    #     params = {
-    #     "q": user_search,
-    #     }
-
-    #     #retrieves the API response 
-    #     response = requests.get("https://projects.propublica.org/nonprofits/api/v2/search.json?", params)
-    #     # stores the api response in json in a dict variable
-    #     # print(response)
-    #     nonprof_json = response.json()
-    #     # print(nonprof_json)
-
-    #     orgs_list_dict = nonprof_json['organizations']
-    #     # form = CreateValueForm
-    #     return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict})
+    def get(self, request, pk, slug):
+        value = Value.objects.get(slug__iexact=slug)
+        
+        params = {
+            'q': slug
+        }
+        response = requests.get("https://projects.propublica.org/nonprofits/api/v2/search.json?", params)
+        
+        nonprof_json = response.json()
+        
+        orgs_list_dict = nonprof_json['organizations']
+        
+        return render(request, self.template_name, {'nonprofs' : orgs_list_dict, 'value': value})
+    
 
 

@@ -2,7 +2,7 @@
   <div class="card-header">value</div>
   <div class="card-body">
     <h4 class="card-title">{{ value.tag }}</h4>
-    <a href="{% url 'nonprof_detail' value.id %}"> More Info</a>
+    <a href="{% url 'nonprof_detail' value.id value.slug%}"> More Info</a>
     <br />
   </div>
 </div>

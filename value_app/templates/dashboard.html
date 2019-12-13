@@ -16,7 +16,7 @@
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <h5 class="modal-title" id="exampleModalLongTitle">search values</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -24,12 +24,11 @@
       <div class="modal-body">
         <form method="get" action="{% url 'nonprof_list' %}" class="mx-auto">
           {% csrf_token %}
-        <div class="col-8">
-          <label for="id_username">Value</label>
-          <input class="form-control" type="text" name="search" id="id_username" required>
-      </div>      </div>
+        <span>
+          <input class="" type="text" name="search" id="id_username" required>
+        </span>      </div>
       <div class="modal-footer">
-          <input type="submit" value="nonprof_list" class="btn btn-success">
+          <input type="submit" value="explore" class="btn btn-success">
         </form>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
       </div>

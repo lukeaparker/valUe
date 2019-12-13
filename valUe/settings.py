@@ -42,9 +42,10 @@ INSTALLED_APPS = [
     'value_app',
     'value_accounts',
     'crispy_forms',
-
+    'rest_framework',
 ]
 
+ ALLOWED_HOSTS = ['localhost', 'uniqueprojectname.herokuapp.com']
 
 
 MIDDLEWARE = [
