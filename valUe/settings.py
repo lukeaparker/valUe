@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     'rest_framework',
 ]
 
- ALLOWED_HOSTS = ['localhost', 'uniqueprojectname.herokuapp.com']
+ ALLOWED_HOSTS = ['localhost', 'lukeaparkervalue.herokuapp.com']
 
 
 MIDDLEWARE = [
