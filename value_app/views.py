@@ -8,7 +8,7 @@ import requests
 import random 
 import json
 from django.http import HttpResponseRedirect
-          
+from value_app.forms import CreateValueForm        
 
 class LandingView(CreateView):
     """ Class to render landingpage. """
@@ -32,8 +32,6 @@ class DashboardView(ListView):
   
 class NonprofList(CreateView):
     """ Class to render landingpage. """
-    
-
     def get(self, request):
       # stores params in a dict variable for the api respponse
       user_search = request.GET.get("search")
@@ -49,6 +47,7 @@ class NonprofList(CreateView):
       # print(nonprof_json)
 
       orgs_list_dict = nonprof_json['organizations']
+<<<<<<< HEAD
       # #Using dictionary notation, get the 'results' field of the JSON,
       # # which contains the GIFs as a list, 
       # # If statement checks to make sure that if the server doesnt have anything to return, it doesnt crash
@@ -75,6 +74,17 @@ class NonprofList(CreateView):
         # if a GET (or any other method) we'll create a blank form
         else:
             form = CreateValueForm()
+=======
+      form = CreateValueForm
+      return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict,'form': form})
+    
+    def post(self, request, *args, **kwargs):
+      form = CreateValueForm(request.POST)
+      if form.is_valid():
+          value = form.save()
+          return HttpResponseRedirect(reverse_lazy('dashboard'))
+      return render(request, 'nonprof_list.html', {'nonprofs' : orgs_list_dict,'form': form})
+>>>>>>> 6792fee23759700e99e193b87edcbaf6c42b7d23
 
         return render(request, 'dashboard.html', {'form': form})
 

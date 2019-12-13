@@ -1,5 +1,8 @@
 from django import forms
+from value_app.models import Value  
 
 class CreateValueForm(forms.ModelForm):
-    value_tag = forms.CharField(max_length=15)
-   
+    model = Value
+    class Meta:
+        model = Value
+        fields = ['tag']
