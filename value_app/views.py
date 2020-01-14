@@ -11,6 +11,9 @@ import json
 from django.http import HttpResponseRedirect
 from value_app.forms import CreateValueForm        
 from django.views.generic.detail import DetailView
+from value_app.lib.GlobalGiving.gg_api import v_api
+
+json1 = v_api()
 
 class LandingView(CreateView):
     """ Class to render landingpage. """
@@ -31,7 +34,22 @@ class DashboardView(ListView):
         return render(request, 'dashboard.html', {
           'values': values
         })
+
+class ProjectView(ListView):
+    """ Renders a list of all Pages. """
+    def get(self, request):
+        """ GET a list of Pages. """
+        print(json1.get_domains(print_url=True))
+
+        values = json1.get_domains()
+        return render(request, 'explore_domains.html', {
+          'values': values['themes']['theme']
+        })
   
+
+
+
+
 class NonprofList(CreateView):
     """ Class to render landingpage. """
     def get(self, request):

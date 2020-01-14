@@ -2,8 +2,22 @@
 
 <div class="d-flex justify-content-between">
   <h2>Dashboard</h2>
+
+
   <!-- Button trigger modal -->
-<button type="button" class="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-black" data-toggle="modal" data-target="#exampleModalCenter">+</button></div>
+
+<form method="get" action="{% url 'project' %}" class="mx-auto">
+  {% csrf_token %}
+  <input type="submit" value="explore" class="btn btn-success">
+</form>
+
+<button type="button" class="w3-button w3-large w3-circle w3-xlarge w3-ripple w3-black" data-toggle="modal" data-target="#exampleModalCenter">+</button>
+
+
+
+
+
+</div>
 
 
 
